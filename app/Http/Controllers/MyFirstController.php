@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MyFirstController extends Controller
 {
-    public function view($id = 0){
-        return "smtNew and ".$id;
+    public function show($id = 0){
+        return view('first.show', ['var1' => $id, 'var2' => '2']);
     }
 }

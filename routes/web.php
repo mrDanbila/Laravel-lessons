@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/new/{id?}',[MyFirstController::class, 'view']);
+Route::get('/new/{id?}',[MyFirstController::class, 'show']);
 
 // Route::get('/smt/{product?}', function ($product = "нету") {
 //     return $product;
