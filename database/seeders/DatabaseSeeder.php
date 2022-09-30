@@ -32,6 +32,12 @@ class DatabaseSeeder extends Seeder
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"), 
             ]);
+
+        DB::table('thumbnails')->insert([
+            'path' => Str::random(3)."/".Str::random(3)."/",
+            'alt' => Str::random(5), 
+            'post_id' => rand(1,6),
+            ]);
         // \App\Models\User::factory(10)->create();
     }
 }
