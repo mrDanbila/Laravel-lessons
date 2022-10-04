@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MyFirstController;
+use App\View\Components\Alert;
+use App\Http\Controllers\AlertController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,18 @@ use App\Http\Controllers\MyFirstController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/new/{id?}',[MyFirstController::class, 'show']);
+Route::match(['get', 'post'], '/form', [MyFirstController::class, 'form']);
+
+Route::get('/', [AlertController::class, 'show']);
+
+// Route::get('/', [MyFirstController::class, 'show']);
+
+
+// Route::get('/new/{id?}',[MyFirstController::class, 'show']);
 
 // Route::get('/smt/{product?}', function ($product = "нету") {
 //     return $product;

@@ -6,34 +6,29 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Posts;
 
-
 class MyFirstController extends Controller
 {
-    public function show($id = 0)
+    public function show()
     {
-        $posts = Posts::all();
-        
-        foreach ($posts as $post) {
-            dump($post->thumbnail['path']);
-        }
+        echo "smt";
+        // $posts = Posts::find(2);
+
+        // foreach($posts->thumbnails as $thumbnail)
+        // {
+        //     dump($thumbnail->path);
+        // }
     }
+
+
+    public function form(Request $request)
+    {
+        if ($request->has('title') and $request->has('slug')) {
+            $title = $request->input('title');
+            $slug  = $request->input('slug');
+            return view('post.form', ['title' => $title, 'slug' => $slug,]);
+        }
+        
+        else return view('post.form');
+    } 
 }
 
-// class MyFirstController extends Controller
-// {
-// 		public function show($id = 0)
-// 		{
-// 			$post = Posts::find(1)->thumbnails;
-// 			dump($post); // объект с миниатюрой
-// 		}
-//         // $users = DB::table('users')->where('age', 0)->pluck('salary');
-//         // dump($users);
-//         // 
-//         // foreach ($posts as $post) 
-//         // {
-//         //     dump(gettype($post->title));
-//         // }
-			
-//         // return view('first.show', ['posts' => $posts]);
-    
-// }

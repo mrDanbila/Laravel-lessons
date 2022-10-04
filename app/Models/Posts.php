@@ -10,8 +10,8 @@ class Posts extends Model
 {
     use HasFactory;
 
-    public function thumbnail()
+    public function thumbnails()
     {
-        return $this->hasOne(Thumbnails::class, 'post_id', 'id');
+        return $this->hasMany(Thumbnails::class, 'post_id', 'id');
     }	
 }
