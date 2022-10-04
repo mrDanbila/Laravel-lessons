@@ -1,3 +1,0 @@
-<footer>
-    the end
-</footer>
